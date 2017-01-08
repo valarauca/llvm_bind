@@ -1,0 +1,7 @@
+[package]
+name = "llvm_bind"
+version = "0.1.0"
+authors = ["valarauca"]
+
+[dependencies]
+llvm-sys = "0.4.0"
