@@ -11,7 +11,7 @@ use std::os::raw::c_char;
 
 use super::Buffers;
 use super::buffer::Buffer;
-
+use super::target::get_local_triple;
 
 const NULLPTR: &'static str = "
 Module name has a null ptr
@@ -82,7 +82,31 @@ impl Module {
       Buffer::from_raw(buf,v)
     }
   } 
+  
+  /// Set Target Triple
+  ///
+  /// Set what type of machine/os this module is being
+  /// compiled too
+  pub fn set_target(&mut self, triple: &str) {
+    let buf = CString::new(triple).expect(NULLPTR);
+    unsafe{  
+      LLVMSetTarget(self.data, buf.as_ptr());
+    }
+    self.buffers.push(Buffers::A(buf));
+  }
 
+  /// Set _This_ triple
+  ///
+  /// Set the model to the default target
+  /// triple for the system the code is
+  /// currently executing on
+  pub fn set_default_triple(&mut self) {
+    let buf = get_local_triple();
+    unsafe {
+      LLVMSetTarget(self.data, buf.as_ptr());
+    }
+    self.buffers.push(Buffers::A(buf));
+  } 
   
   /// Get the name of this item
   pub fn get_name<'a>(&self) -> &'a CStr {

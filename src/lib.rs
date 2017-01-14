@@ -17,6 +17,7 @@ use llvm_sys::prelude::*;
 use llvm_sys::core::*;
 use llvm_sys::analysis::*;
 use llvm_sys::bit_writer::*;
+use llvm_sys::target_machine::*;
 
 use std::ffi::{CString,CStr};
 use std::os::raw::c_char;
@@ -40,12 +41,31 @@ pub mod buffer;
 /// buffer.
 pub mod module;
 
+
+/// LLVM Target information
+///
+/// Contains information relating to the target of compilation
+pub mod target;
+
+/// LLVM Pass information
+///
+/// Contains what optimization passes should be performed
+/// on the to be compiled module.
+pub mod pass;
+
+
+
+
+
 /// Used in internal data structures to keep things alive
+///
+/// llvm_sys, nor the LLVM's C API, nor the LLVM itself are
+/// to particular on memory management. So this enum is used
+/// to keep objects alive which are tied to an LLVM pointer.
 pub enum Buffers {
   A(CString),
-  B(Vec<u8>)
+  B(Vec<u8>),
 }
-
 
 
 
