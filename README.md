@@ -28,10 +28,14 @@ bind _to_ that interface you have to _equally_ fluid... at least until there sta
 
 That being said `llvm-sys` the raw C++ to C to Rust bindings for the LLVM are not stable, nor consistent across
 LLVM versions. `llvm-sys`'s version _may_ have to change based on your local llvm verion. This isn't _rocket science_
-`llvm-sys = 40.0.*` just means the local llvm version is 4.0. While `llvm-sys = 39.0.*` implies the local llvm version
-is 3.9._something_ got it?
+`llvm-sys = 40.0.*` just means the local llvm version is `v4.0`. While `llvm-sys = 39.0.*` implies the local llvm version
+is `v3.9`. Make sense? **YOU MAY NEED TO MODIFY THIS**
 
-In its current form this library is developed on Fedora25. Which is shipping LLVM v3.9.1 so the local `llvm-sys` is `39.0.*`
+The LLVM versions `v3.7` and `v4.1` are black listed and these builds will **ALWAYS** fail.
+
+In its current form this library is developed on Fedora25. Which is shipping LLVM `v3.9.1` so the local `llvm-sys` is `39.0.*`
+
+---
 
 ### Building Fedora25
 
