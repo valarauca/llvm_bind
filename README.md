@@ -37,9 +37,9 @@ In its current form this library is developed on Fedora25. Which is shipping LLV
 
 ---
 
-### Building Fedora25
+### Fedora25
 
-You will need to install _some_ system libraries
+Install these packages
 
 ```
 sudo dnf install gcc gcc-c++ llvm-devel redhat-rpm-config ncurses-devel
@@ -49,14 +49,14 @@ Provided that is done, and you have a valid `rust` and `cargo` install you shoul
 
 ---
 
-### Build Ubuntu (TODO)
+### Ubuntu (TODO)
 
 ----
 
-### Building OSX (TODO)
+### OSX/MacOS (TODO)
 
 ---
 
-### Building Windows (LMAO)
+### Windows (LMAO)
 
 
