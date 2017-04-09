@@ -53,18 +53,14 @@ pub mod target;
 /// on the to be compiled module.
 pub mod pass;
 
-
-
-
-
 /// Used in internal data structures to keep things alive
 ///
 /// llvm_sys, nor the LLVM's C API, nor the LLVM itself are
 /// to particular on memory management. So this enum is used
 /// to keep objects alive which are tied to an LLVM pointer.
 pub enum Buffers {
-  A(CString),
-  B(Vec<u8>),
+    A(CString),
+    B(Vec<u8>),
 }
 
 

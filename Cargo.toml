@@ -4,4 +4,4 @@ version = "0.1.0"
 authors = ["valarauca"]
 
 [dependencies]
-llvm-sys = "0.4.0"
+llvm-sys = "39.0.*"
